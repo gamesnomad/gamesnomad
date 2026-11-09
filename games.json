@@ -2,17 +2,6 @@
  "disclosure": "Affiliate link: I may earn a commission at no extra cost to you.",
  "games": [
   {
-   "id": "d8b4bee1dc",
-   "title": "Indiegala logo",
-   "store": "indiegala",
-   "image": null,
-   "price": null,
-   "old_price": null,
-   "discount": null,
-   "link": "https://www.indiegala.com/store?ref=gamenomadbot",
-   "wishlist": false
-  },
-  {
    "id": "a8d0d68a4b",
    "title": "Minecraft: Java + Bedrock Edition Minecraft for PC",
    "store": "instantgaming",
@@ -21,6 +10,17 @@
    "old_price": 30.0,
    "discount": 43,
    "link": "https://www.instant-gaming.com/en/442-buy-minecraft-java-and-bedrock-edition-pc/?igr=gamenomadbot",
+   "wishlist": false
+  },
+  {
+   "id": "422d9298d4",
+   "title": "Buy Call of Duty: Modern Warfare 4 - PC &amp; XBOX Series X|S (Microsoft Store)",
+   "store": "instantgaming",
+   "image": "https://gaming-cdn.com/images/products/16809/616x353/call-of-duty-modern-warfare-4-xbox-series-x-s-pc-microsoft-store-cover.jpg?v=1792479050",
+   "price": 61.99,
+   "old_price": 80.0,
+   "discount": 23,
+   "link": "https://www.instant-gaming.com/en/16809-buy-call-of-duty-modern-warfare-4-xbox-series-x-s-pc-microsoft-store/?igr=gamenomadbot",
    "wishlist": false
   }
  ]
