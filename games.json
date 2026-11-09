@@ -1,0 +1,27 @@
+{
+ "disclosure": "Affiliate link: I may earn a commission at no extra cost to you.",
+ "games": [
+  {
+   "id": "d8b4bee1dc",
+   "title": "Indiegala logo",
+   "store": "indiegala",
+   "image": null,
+   "price": null,
+   "old_price": null,
+   "discount": null,
+   "link": "https://www.indiegala.com/store?ref=gamenomadbot",
+   "wishlist": false
+  },
+  {
+   "id": "a8d0d68a4b",
+   "title": "Minecraft: Java + Bedrock Edition Minecraft for PC",
+   "store": "instantgaming",
+   "image": "https://gaming-cdn.com/images/products/442/616x353/minecraft-java-and-bedrock-edition-pc-cover.jpg?v=1787555845",
+   "price": 16.99,
+   "old_price": 30.0,
+   "discount": 43,
+   "link": "https://www.instant-gaming.com/en/442-buy-minecraft-java-and-bedrock-edition-pc/?igr=gamenomadbot",
+   "wishlist": false
+  }
+ ]
+}
