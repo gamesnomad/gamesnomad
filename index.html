@@ -1,0 +1,28 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>GameNomad Deals</title><link rel="icon" href="logo.svg"/>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Figtree:wght@400;600&display=swap" rel="stylesheet"/>
+<style>:root{--bg:#0D1020;--panel:#151A30;--line:#2A3258;--text:#E9ECFF;--mute:#8B93B8;--v:#7C5CFF;--a:#FFB547;--c:#FF5C7A}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 Figtree,system-ui,sans-serif}
+header{display:flex;align-items:center;gap:12px;padding:18px 24px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+header img{width:36px}h1{font:700 22px "Chakra Petch",sans-serif;margin:0;margin-right:auto}
+input{background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:8px 12px;font:inherit}
+.tabs{display:flex;gap:8px;padding:16px 24px 0}.tabs button{border:1px solid var(--line);background:var(--panel);color:var(--mute);border-radius:99px;padding:6px 16px;font:inherit;cursor:pointer}
+.tabs button.on{background:var(--v);color:#fff;border-color:var(--v)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;padding:20px 24px}
+a.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;color:inherit;text-decoration:none;display:flex;flex-direction:column}
+a.card:hover,a.card:focus-visible{border-color:var(--v);outline:none}.t{aspect-ratio:16/9;background:#1B2140 center/cover}
+.b{padding:12px;display:flex;flex-direction:column;gap:6px;flex:1}.b h2{font:600 15px "Chakra Petch",sans-serif;margin:0}
+.p{margin-top:auto;display:flex;gap:8px;align-items:baseline}.p b{color:var(--a);font-size:18px}.p s{color:var(--mute);font-size:13px}
+.d{background:var(--c);font-weight:700;font-size:12px;padding:2px 7px;border-radius:6px}.s{color:var(--mute);font-size:12px}
+footer{padding:24px;color:var(--mute);font-size:13px;border-top:1px solid var(--line)}</style></head><body>
+<header><img src="logo.svg" alt=""/><h1>GameNomad Deals</h1><input id="q" type="search" placeholder="Search games" aria-label="Search games"/></header>
+<div class="tabs" id="tabs"></div><div class="grid" id="g"></div><footer id="f"></footer>
+<script>
+let all=[],tab="all",q="";const $=id=>document.getElementById(id),esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const T=[["all","All"],["sale","On sale"],["wish","Wishlist"],["instantgaming","Instant Gaming"],["indiegala","IndieGala"]];
+function draw(){$("tabs").innerHTML=T.map(([k,l])=>`<button class="${k===tab?"on":""}" data-k="${k}">${l}</button>`).join("");
+const L=all.filter(g=>g.title.toLowerCase().includes(q)&&(tab==="all"||(tab==="sale"&&g.discount)||(tab==="wish"&&g.wishlist)||g.store===tab));
+$("g").innerHTML=L.length?L.map(g=>`<a class="card" href="${esc(g.link)}" target="_blank" rel="sponsored noopener"><div class="t" style="${g.image?`background-image:url('${esc(g.image)}')`:""}"></div><div class="b"><h2>${esc(g.title)}</h2><div class="p">${g.price!=null?`<b>${g.price.toFixed(2)}</b>`:""}${g.old_price?`<s>${g.old_price.toFixed(2)}</s>`:""}${g.discount?`<span class="d">-${g.discount}%</span>`:""}</div><span class="s">${g.store==="instantgaming"?"Instant Gaming":"IndieGala"}</span></div></a>`).join(""):"<p style='padding:24px;color:var(--mute)'>No games match.</p>"}
+$("tabs").onclick=e=>{if(e.target.dataset.k){tab=e.target.dataset.k;draw()}};$("q").oninput=e=>{q=e.target.value.toLowerCase();draw()};
+fetch("games.json").then(r=>r.json()).then(d=>{all=d.games;$("f").textContent=d.disclosure;draw()});
+</script></body></html>
